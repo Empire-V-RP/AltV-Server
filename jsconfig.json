@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"target": "esNext",
+		"module": "esNext",
+		"rootDir": ".",
+		"typeRoots": [
+			"./node_modules/@altv"
+		]
+	}
+}

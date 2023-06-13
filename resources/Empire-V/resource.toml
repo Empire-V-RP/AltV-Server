@@ -1,0 +1,11 @@
+type = "js"
+client-type = "js"
+main = "server/startup.js"
+client-main = "client/index.js"
+client-files = [
+    "includes/*",
+    "client/*"
+]
+deps = [
+    "chat"
+]

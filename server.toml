@@ -1,0 +1,20 @@
+name = 'Alt:V Roleplay open beta'
+host = '0.0.0.0'
+#host = '0.0.0.0'
+port = 2023
+players = 10
+#password = ''
+announce = false
+#token = ''
+gamemode = 'Roleplay'
+website = 'deine-webseite.de'
+debug = true
+language = 'de'
+description = 'Dieser Server Stammt von Empire-V'
+modules = ['js-bytecode-module', 'js-module']
+resources = [
+    'chat',
+    'Empire-V',
+    'polizeiveste',
+	'sheriffclothes'
+]

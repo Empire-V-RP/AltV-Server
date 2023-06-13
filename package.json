@@ -1,0 +1,33 @@
+{
+  "devDependencies": {
+    "@altv/types-client": "^2.7.2",
+    "@altv/types-natives": "^1.5.4",
+    "@altv/types-server": "^2.7.5",
+    "@altv/types-shared": "^1.4.9",
+    "@altv/types-webview": "^1.0.5"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "jquery": "^3.7.0",
+    "mysql": "^2.18.1",
+    "node-fetch": "^3.3.1"
+  },
+  "name": "altv-project",
+  "description": "Willkommen zu meinem Empire-V alt:V-Projekt! Dieses Projekt basiert auf der alt:V-Multiplayer-Plattform und zielt darauf ab, ein umfangreiches und fesselndes Spielerlebnis in einer Open-World-Umgebung zu bieten.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Empire-V-RP/Altv-Project.git"
+  },
+  "author": "FreddyOnline24",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Empire-V-RP/Altv-Project/issues"
+  },
+  "homepage": "https://github.com/Empire-V-RP/Altv-Project#readme"
+}
