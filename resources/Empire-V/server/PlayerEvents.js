@@ -10,7 +10,7 @@ alt.on('playerConnect', (player) => {
       if (result.length > 0) {
          player.spawn(result[0].x, result[0].y, result[0].z, 0);
          player.model = "mp_m_freemode_01";
-         loadplayerclothesfromdatenbank(player);
+         loadPlayerClothesFromDatabase(player);
          chat.send(player, "Willkommen zurück " + player.name);
          console.log(player.name + " hat sich eingeloggt");
          alt.emitClient(player, "startHUD");
@@ -18,7 +18,7 @@ alt.on('playerConnect', (player) => {
       } else {
          player.spawn(413.815, -978.132, 29.4315, 0);
          player.model = "mp_m_freemode_01";
-         loadplayerclothesfromdatenbank(player);
+         loadPlayerClothesFromDatabase(player);
          console.log(player.name + " hat sich eingeloggt");
          alt.emitClient(player, "startHUD");
 
@@ -149,7 +149,7 @@ alt.on('playerDeath', (player) => {
    });
    
 });
-function loadPlayerClothesFromDatabase(player) {
+export function loadPlayerClothesFromDatabase(player) {
    connection.query(`SELECT * FROM playerclohtes WHERE name = ?`, [player.name], function (err, result) {
       if (err) throw err;
       if (result.length > 0) {

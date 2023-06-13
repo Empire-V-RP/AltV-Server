@@ -6,7 +6,7 @@ export const connection = Mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'empire-v-altv'
+    database: 'altv'
 });
 
 export function isPolice(player) {

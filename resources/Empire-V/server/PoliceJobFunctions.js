@@ -4,7 +4,7 @@ import * as verbindung from '../server/MysqlConnection.js';
 
 export function getDienstStatus(player) {
     return new Promise((resolve, reject) => {
-       connection.query(`SELECT is_dienst FROM playerstats WHERE name = ?`, [player.name], function (error, result) {
+      verbindung.connection.query(`SELECT is_dienst FROM playerstats WHERE name = ?`, [player.name], function (error, result) {
           if (error) {
              console.log(error);
              resolve(false);
@@ -226,22 +226,20 @@ export function StandartSheriffKleidung(player) {
       });
 
       export function setDienstBeginn(player) {
-        connection.query(`UPDATE playerstats SET is_dienst = 1 WHERE name = ?`, [player.name], function (error, result) {
+         verbindung.connection.query(`UPDATE playerstats SET is_dienst = 1 WHERE name = ?`, [player.name], function (error, result) {
            if (error) {
               console.log(error);
            } else {
-              alt.emitClient(player, 'Dienst_beginn');
               chat.send(player, 'Du hast deinen Dienst begonnen', 255, 255, 255);
            }
         });
      }
      
      export function setDienstBeenden(player) {
-        connection.query(`UPDATE playerstats SET is_dienst = 0 WHERE name = ?`, [player.name], function (error, result) {
+      verbindung.connection.query(`UPDATE playerstats SET is_dienst = 0 WHERE name = ?`, [player.name], function (error, result) {
            if (error) {
               console.log(error);
            } else {
-              alt.emitClient(player, 'Dienst_beenden');
               chat.send(player, 'Du hast deinen Dienst beendet, schönen Feierabend', 255, 255, 255);
            }
         });
