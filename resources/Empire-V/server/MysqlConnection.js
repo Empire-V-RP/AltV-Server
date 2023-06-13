@@ -9,24 +9,32 @@ export const connection = Mysql.createConnection({
     database: 'empire-v-altv'
 });
 
-
 export function isPolice(player) {
-   const value = connection.query(`SELECT * FROM playerstats WHERE name = '${player.name}'`, function (err, result) {
-        if (err) throw err;
-        if (result.length > 0) {
-            result.forEach(playerstats => {
-                const job = playerstats.job;
-                if (job == "LSPD") {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
+    return new Promise((resolve, reject) => {
+      const query = `SELECT * FROM playerstats WHERE name = ?`;
+      const values = [player.name];
+      connection.query(query, values, function (err, result) {
+        if (err) {
+          console.error(err);
+          resolve(false);
         }
-    }
-    );
-    return value;
-}
+  
+        if (result.length > 0) {
+          result.forEach(playerstats => {
+            const job = playerstats.job;
+            if (job == "LSPD") {
+              resolve(true);
+            } else {
+              resolve(false);
+            }
+          });
+        } else {
+          resolve(false);
+        }
+      });
+    });
+  }
+  
 
   
 
@@ -107,29 +115,30 @@ export function savePlayerClothes(player) {
         top_texture: player.getClothes(8).texture
     };
 
-    connection.query(`SELECT * FROM playerclohtes WHERE name = '${player.name}'`, (error, result) => {
+    connection.query(`SELECT * FROM playerclothes WHERE name = ?`, [player.name], (error, result) => {
         if (error) {
-            console.log(error);
+          console.error(error);
         } else {
-            if (result.length > 0) {
-                connection.query(`UPDATE playerclohtes SET ? WHERE name = '${player.name}'`, clothes, (error, result) => {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        console.log('[Empire-V] Spieler Kleidung aktualisiert!');
-                    }
-                });
-            } else {
-                connection.query(`INSERT INTO playerclohtes SET ?`, clothes, (error, result) => {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        console.log('[Empire-V] Spieler Kleidung gespeichert!');
-                    }
-                });
-            }
+          if (result.length > 0) {
+            connection.query(`UPDATE playerclothes SET ? WHERE name = ?`, [clothes, player.name], (error, result) => {
+              if (error) {
+                console.error(error);
+              } else {
+                console.log('[Empire-V] Spieler Kleidung aktualisiert!');
+              }
+            });
+          } else {
+            connection.query(`INSERT INTO playerclothes SET ?`, clothes, (error, result) => {
+              if (error) {
+                console.error(error);
+              } else {
+                console.log('[Empire-V] Spieler Kleidung gespeichert!');
+              }
+            });
+          }
         }
-    });
+      });
+      
 }
 
 

@@ -10,22 +10,25 @@ import * as verbindung from '../server/MysqlConnection.js';
 
 
 export function checkpolice(player) {
-   return new Promise((resolve, reject) => {
-       verbindung.connection.query(`SELECT job FROM playerstats WHERE name = '${player.name}'`, function (error, result) {
-           if (error) {
-               console.log(error);
-               resolve(false);
-           }
-
-           if (result.length > 0) {
-               const job = result[0].job;
-               resolve(job === 'LSPD');
-           } else {
-               resolve(false);
-           }
-       });
-   });
-}
+    return new Promise((resolve, reject) => {
+      const query = 'SELECT job FROM playerstats WHERE name = ?';
+      const values = [player.name];
+      verbindung.connection.query(query, values, function (error, result) {
+        if (error) {
+          console.log(error);
+          resolve(false);
+        }
+  
+        if (result.length > 0) {
+          const job = result[0].job;
+          resolve(job === 'LSPD');
+        } else {
+          resolve(false);
+        }
+      });
+    });
+  }
+  
 
 
 alt.onClient('lockvehicle', async (player) => {
