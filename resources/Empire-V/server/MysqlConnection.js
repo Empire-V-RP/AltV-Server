@@ -53,6 +53,7 @@ connection.connect((error) => {
         createPlayerLastLocationTable();
         createPlayerClohtesTable();
         creteplayerstatstable();
+        CreateLoginTable();
 
         // LOGINSYSTEM
         createRegisterTable();

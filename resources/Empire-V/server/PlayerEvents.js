@@ -14,7 +14,6 @@ alt.on('playerConnect', (player) => {
          chat.send(player, "Willkommen zurück " + player.name);
          console.log(player.name + " hat sich eingeloggt");
          alt.emitClient(player, "startHUD");
-
       } else {
          player.spawn(413.815, -978.132, 29.4315, 0);
          player.model = "mp_m_freemode_01";
@@ -87,7 +86,6 @@ alt.setInterval(function () {
         if (err) {
           console.error(err);
         } else {
-          console.log('Spielerposition in playerlastlocation aktualisiert!');
         }
       });
       

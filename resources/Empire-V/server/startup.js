@@ -6,6 +6,7 @@ import '../server/Coleshape.js';
 import '../server/Commands.js';
 import '../server/KleidungsLaden.js';
 import '../server/Bank.js';
+import '../server/loginregister.js';
 
 
 
