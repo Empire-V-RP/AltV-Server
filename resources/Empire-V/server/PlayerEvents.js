@@ -14,14 +14,15 @@ alt.on('playerConnect', (player) => {
          chat.send(player, "Willkommen zurück " + player.name);
          console.log(player.name + " hat sich eingeloggt");
          alt.emitClient(player, "startHUD");
+
       } else {
          player.spawn(413.815, -978.132, 29.4315, 0);
          player.model = "mp_m_freemode_01";
          loadPlayerClothesFromDatabase(player);
          console.log(player.name + " hat sich eingeloggt");
          alt.emitClient(player, "startHUD");
+         alt.emit('character:Edit', player);
 
-         
          // INSERT INTO playerstats (name, money, bankmoney, job, job_rank, permission_level, personal_vehicle, personal_vehicle_ingarage) VALUES ('${player.name}', '0', '0', 'Zivilist', 'Zivilist', '0', '0', '0')
          const playerstatsQuery = `INSERT INTO playerstats (name, money, bankmoney, job, job_rank, permission_level, personal_vehicle, personal_vehicle_ingarage) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
          const playerlastlocationQuery = `INSERT INTO playerlastlocation (name, x, y, z) VALUES (?, ?, ?, ?)`;

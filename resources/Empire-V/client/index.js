@@ -17,3 +17,5 @@ import './menu/Firsuer.js';
 import './menu/bank.js';
 import './includes/NativeUI/NativeUi.js'
 import './hud/hud.js';
+import './CharakterCreator/editor.js';
+import './CharakterCreator/camera.js';

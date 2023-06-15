@@ -41,19 +41,20 @@ export function checkadmin(player) {
       });
     });
   }
-  
-  chat.registerCmd('saveoutfit', async (player) => {
+
+  chat.registerCmd('charaktereditor', async (player) => {
     try {
       const isAdmin = await checkadmin(player);
       if (!isAdmin) {
         return chat.send(player, 'Du hast nicht die benötigten Rechte!', 255, 255, 255);
       }
-      verbindung.savePlayerClothes(player);
-      chat.send(player, 'Dein Outfit wurde gespeichert!', 255, 255, 255);
+      alt.emit('character:Edit', player);
     } catch (err) {
       console.error(err);
     }
   });
+  
+  
   
   chat.registerCmd('auto', async (player, args) => {
     try {

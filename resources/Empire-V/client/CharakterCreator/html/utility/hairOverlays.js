@@ -70,8 +70,14 @@ const maleHairOverlays = {
     69: { collection: 'mpbiker_overlays', overlay: 'MP_Biker_Hair_003_M' },
     70: { collection: 'mpbiker_overlays', overlay: 'MP_Biker_Hair_004_M' },
     71: { collection: 'mpbiker_overlays', overlay: 'MP_Biker_Hair_005_M' },
-    72: { collection: 'mpgunrunning_overlays', overlay: 'MP_Gunrunning_Hair_M_000_M' },
-    73: { collection: 'mpgunrunning_overlays', overlay: 'MP_Gunrunning_Hair_M_001_M' }
+    72: {
+        collection: 'mpgunrunning_overlays',
+        overlay: 'MP_Gunrunning_Hair_M_000_M'
+    },
+    73: {
+        collection: 'mpgunrunning_overlays',
+        overlay: 'MP_Gunrunning_Hair_M_001_M'
+    }
 };
 
 const femaleHairOverlays = {
@@ -150,6 +156,12 @@ const femaleHairOverlays = {
     73: { collection: 'multiplayer_overlays', overlay: 'NG_F_Hair_003' },
     74: { collection: 'mpbiker_overlays', overlay: 'MP_Biker_Hair_006_F' },
     75: { collection: 'mpbiker_overlays', overlay: 'MP_Biker_Hair_004_F' },
-    76: { collection: 'mpgunrunning_overlays', overlay: 'MP_Gunrunning_Hair_F_000_F' },
-    77: { collection: 'mpgunrunning_overlays', overlay: 'MP_Gunrunning_Hair_F_001_F' }
+    76: {
+        collection: 'mpgunrunning_overlays',
+        overlay: 'MP_Gunrunning_Hair_F_000_F'
+    },
+    77: {
+        collection: 'mpgunrunning_overlays',
+        overlay: 'MP_Gunrunning_Hair_F_001_F'
+    }
 };

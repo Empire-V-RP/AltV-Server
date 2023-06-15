@@ -55,12 +55,10 @@ connection.connect((error) => {
         creteplayerstatstable();
         CreateLoginTable();
 
-        // LOGINSYSTEM
-        createRegisterTable();
-        CreateLoginTable();
-
+        //CHARAKTER SYSTEM
     }
 });
+
 
 
  // money & bankmoney & job & job_rank & is_dienst & permission_level & personal_vehicle & personal_vehicle_ingarage
@@ -88,61 +86,46 @@ function creteplayerstatstable() {
 
 
 
-export function savePlayerClothes(player) {
-    const clothes = {
-        hat_style: player.getClothes(0).drawable,
-        hat_texture: player.getClothes(0).texture,
-        hair_style: player.getClothes(1).drawable,
-        hair_texture: player.getClothes(1).texture,
-        glasses_style: player.getClothes(2).drawable,
-        glasses_texture: player.getClothes(2).texture,
-        mask_style: player.getClothes(3).drawable,
-        mask_texture: player.getClothes(3).texture,
-        torso_style: player.getClothes(4).drawable,
-        torso_texture: player.getClothes(4).texture,
-        legs_style: player.getClothes(6).drawable,
-        legs_texture: player.getClothes(6).texture,
-        shoes_style: player.getClothes(7).drawable,
-        shoes_texture: player.getClothes(7).texture,
-        accessories_style: player.getClothes(8).drawable,
-        accessories_texture: player.getClothes(8).texture,
-        undershirt_style: player.getClothes(11).drawable,
-        undershirt_texture: player.getClothes(11).texture,
-        bodyarmor_style: player.getClothes(9).drawable,
-        bodyarmor_texture: player.getClothes(9).texture,
-        decal_style: player.getClothes(10).drawable,
-        decal_texture: player.getClothes(10).texture,
-        top_style: player.getClothes(8).drawable,
-        top_texture: player.getClothes(8).texture
-    };
+//// hat_style & hat_texture & hair_style & hair_texture & glasses_style & glasses_texture & mask_style & mask_texture & torso_style & torso_texture & legs_style & legs_texture & shoes_style & shoes_texture & accessories_style & accessories_texture & undershirt_style & undershirt_texture & bodyarmor_style & bodyarmor_texture & decal_style & decal_texture & top_style & top_texture
 
-    connection.query(`SELECT * FROM playerclothes WHERE name = ?`, [player.name], (error, result) => {
-        if (error) {
-          console.error(error);
-        } else {
-          if (result.length > 0) {
-            connection.query(`UPDATE playerclothes SET ? WHERE name = ?`, [clothes, player.name], (error, result) => {
-              if (error) {
-                console.error(error);
-              } else {
-                console.log('[Empire-V] Spieler Kleidung aktualisiert!');
-              }
-            });
-          } else {
-            connection.query(`INSERT INTO playerclothes SET ?`, clothes, (error, result) => {
-              if (error) {
-                console.error(error);
-              } else {
-                console.log('[Empire-V] Spieler Kleidung gespeichert!');
-              }
-            });
-          }
-        }
-      });
-      
-}
+export function saveplayerclohtes(player, data) {
+    var hair_style = data.hair_style;
+    var hair_texture = data.hair_texture;
+    var hat_style = data.hat_style;
+    var hat_texture = data.hat_texture;
+    var glasses_style = data.glasses_style;
+    var glasses_texture = data.glasses_texture;
+    var mask_style = data.mask_style;
+    var mask_texture = data.mask_texture;
+    var torso_style = data.torso_style;
+    var torso_texture = data.torso_texture;
+    var legs_style = data.legs_style;
+    var legs_texture = data.legs_texture;
+    var shoes_style = data.shoes_style;
+    var shoes_texture = data.shoes_texture;
+    var accessories_style = data.accessories_style;
+    var accessories_texture = data.accessories_texture;
+    var undershirt_style = data.undershirt_style;
+    var undershirt_texture = data.undershirt_texture;
+    var bodyarmor_style = data.bodyarmor_style;
+    var bodyarmor_texture = data.bodyarmor_texture;
+    var decal_style = data.decal_style;
+    var decal_texture = data.decal_texture;
+    var top_style = data.top_style;
+    var top_texture = data.top_texture;
+    
 
+    // INSERT INTO playerclohtes
+    var sql = "INSERT INTO playerclohtes (name, hat_style, hat_texture, hair_style, hair_texture, glasses_style, glasses_texture, mask_style, mask_texture, torso_style, torso_texture, legs_style, legs_texture, shoes_style, shoes_texture, accessories_style, accessories_texture, undershirt_style, undershirt_texture, bodyarmor_style, bodyarmor_texture, decal_style, decal_texture, top_style, top_texture) VALUES ?";
+    var values = [
+        [player.name, hat_style, hat_texture, hair_style, hair_texture, glasses_style, glasses_texture, mask_style, mask_texture, torso_style, torso_texture, legs_style, legs_texture, shoes_style, shoes_texture, accessories_style, accessories_texture, undershirt_style, undershirt_texture, bodyarmor_style, bodyarmor_texture, decal_style, decal_texture, top_style, top_texture]
+    ];
+    connection.query(sql, [values], function (err, result) {
+        if (err) throw err;
+    });
+    } 
 
+// hat_style & hat_texture & hair_style & hair_texture & glasses_style & glasses_texture & mask_style & mask_texture & torso_style & torso_texture & legs_style & legs_texture & shoes_style & shoes_texture & accessories_style & accessories_texture & undershirt_style & undershirt_texture & bodyarmor_style & bodyarmor_texture & decal_style & decal_texture & top_style & top_texture
 function createPlayerClohtesTable() {
     connection.query(`CREATE TABLE IF NOT EXISTS playerclohtes (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -311,8 +294,8 @@ function createPlayerInventoryTable() {
 
 
 // PLAYER SAVE CLOHTES AND LOAD PLAYER CLOTHES AND SET PLAYER CLOTHES
-export function createPlayerClothesTable() {
-    connection.query(`CREATE TABLE IF NOT EXISTS playerclothes (
+export function createplayerclohtesTable() {
+    connection.query(`CREATE TABLE IF NOT EXISTS playerclohtes (
         id INT AUTO_INCREMENT PRIMARY KEY,
         owner VARCHAR(255) NOT NULL,
         clothes JSON NOT NULL
@@ -320,7 +303,7 @@ export function createPlayerClothesTable() {
         if (error) {
             console.log(error);
         } else {
-            console.log('[Empire-V] Playerclothes Table erstellt!');
+            console.log('[Empire-V] playerclohtes Table erstellt!');
         }
     });
 }
