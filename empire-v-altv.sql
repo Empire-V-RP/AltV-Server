@@ -165,10 +165,6 @@ CREATE TABLE `playerclohtes` (
 -- Daten für Tabelle `playerclohtes`
 --
 
-INSERT INTO `playerclohtes` (`id`, `name`, `hat_style`, `hat_texture`, `hair_style`, `hair_texture`, `glasses_style`, `glasses_texture`, `mask_style`, `mask_texture`, `torso_style`, `torso_texture`, `legs_style`, `legs_texture`, `shoes_style`, `shoes_texture`, `accessories_style`, `accessories_texture`, `undershirt_style`, `undershirt_texture`, `bodyarmor_style`, `bodyarmor_texture`, `decal_style`, `decal_texture`, `top_style`, `top_texture`) VALUES
-(1, 'FreddyOnline24', 0, 0, 10, 1, 9, 1, 0, 0, 35, 0, 25, 0, 0, 0, 58, 0, 55, 0, 59, 0, 0, 0, 58, 0),
-(3, 'Thesilveraction', NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, 4, NULL, 9, NULL, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -187,13 +183,6 @@ CREATE TABLE `playerlastlocation` (
 --
 -- Daten für Tabelle `playerlastlocation`
 --
-
-INSERT INTO `playerlastlocation` (`id`, `name`, `x`, `y`, `z`, `dimension`) VALUES
-(1, 'FreddyOnline24', 149.512, -1031.37, 29.3304, NULL),
-(2, 'Thesilveraction', 149.248, -1038.47, 29.3473, NULL),
-(3, 'kerbi', 452.611, -988.642, 30.6783, NULL),
-(4, 'Hargun singh', 397.938, -1039.36, 29.4484, NULL),
-(5, 'Artem', -45.2835, -1112.18, 26.4323, NULL);
 
 -- --------------------------------------------------------
 
@@ -217,10 +206,6 @@ CREATE TABLE `playerstats` (
 --
 -- Daten für Tabelle `playerstats`
 --
-
-INSERT INTO `playerstats` (`id`, `name`, `money`, `bankmoney`, `job`, `job_rank`, `is_dienst`, `permission_level`, `personal_vehicle`, `personal_vehicle_ingarage`) VALUES
-(2, 'FreddyOnline24', 2323, 121223232, 'LSPD', 'Chief', 0, 100, 'bmx', 0),
-(3, 'Thesilveraction', 100, 10001000, 'LSPD', 'Captain', 0, 0, 'bmx', 0);
 
 -- --------------------------------------------------------
 

@@ -240,7 +240,6 @@ export function StandartSheriffKleidung(player) {
            if (error) {
               console.log(error);
            } else {
-              chat.send(player, 'Du hast deinen Dienst beendet, schönen Feierabend', 255, 255, 255);
            }
         });
      }
