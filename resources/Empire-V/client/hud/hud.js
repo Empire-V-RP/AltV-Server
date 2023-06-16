@@ -61,7 +61,7 @@ function updateHUD(data) {
 
 function getFuelLevel() {
   // Berechnung des Kraftstoffniveaus als Prozentsatz
-  const fuelConsumed = Math.floor(data.kilometers / 0.500) * 1;
+  const fuelConsumed = Math.floor(data.kilometers / 1.000) * 1;
   const remainingFuel = 100 - fuelConsumed;
   return Math.max(0, Math.min(100, remainingFuel));
 }

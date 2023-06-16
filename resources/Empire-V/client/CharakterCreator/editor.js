@@ -150,13 +150,7 @@ function handleFinishSync() {
     }
 
     prevData = tempData;
-
-    const data = {
-        hair_style: tempData.hair,
-        hair_texture: tempData.hairColor1
-    };
-    
-    alt.emitServer('savedata', data);
+    alt.emitServer('character:savedatatodata', tempData);
     }
 
 async function handleSync(data) {

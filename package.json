@@ -10,7 +10,8 @@
     "fs": "^0.0.1-security",
     "jquery": "^3.7.0",
     "mysql": "^2.18.1",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^3.3.1",
+    "sjcl": "^1.0.8"
   },
   "name": "altv-project",
   "description": "Willkommen zu meinem Empire-V alt:V-Projekt! Dieses Projekt basiert auf der alt:V-Multiplayer-Plattform und zielt darauf ab, ein umfangreiches und fesselndes Spielerlebnis in einer Open-World-Umgebung zu bieten.",

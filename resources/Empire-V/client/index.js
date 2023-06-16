@@ -14,7 +14,7 @@ import './menu/Hosenmenu.js';
 import './menu/Armemenu.js';
 import './menu/Schuhemenu.js';
 import './menu/Firsuer.js';
-import './menu/bank.js';
+//import './menu/bank.js';
 import './includes/NativeUI/NativeUi.js'
 import './hud/hud.js';
 import './CharakterCreator/editor.js';

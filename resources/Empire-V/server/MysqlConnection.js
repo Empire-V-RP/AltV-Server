@@ -130,6 +130,7 @@ function createPlayerClohtesTable() {
     connection.query(`CREATE TABLE IF NOT EXISTS playerclohtes (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255),
+        charaktereditor VARCHAR(255),
         hat_style INT,
         hat_texture INT,
         hair_style INT,

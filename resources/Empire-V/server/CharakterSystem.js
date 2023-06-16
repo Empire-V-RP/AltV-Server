@@ -2,7 +2,6 @@ import alt from 'alt-server';
 import * as chat from 'alt:chat';
 import * as Verbingung from './MysqlConnection.js';
 
-
 alt.on('character:Edit', handleCharacterEdit);
 alt.on('character:Sync', handleCharacterSync);
 alt.onClient('character:Done', handleDone);
@@ -47,7 +46,21 @@ function handleDone(player, newData) {
     alt.emit('character:Done', player, newData);
 }
 
+alt.onClient('character:savedatatodata', handleSaveDataToData);
 
-alt.onClient('savedata', (player, data) => { 
-    Verbingung.saveplayerclohtes(player, data);
-});
+function handleSaveDataToData(player, tempData) {
+   // CHECK IF PLAYER EXISTS IN playerclohtes INSERT INTO whis player.name AND IF NOT UPDATE IT
+    Verbingung.connection.query(`SELECT * FROM playerclohtes WHERE name = '${player.name}'`, function (err, result) {
+        if (err) throw err;
+        if (result.length > 0) {
+            Verbingung.connection.query(`UPDATE playerclohtes SET charaktereditor = '${tempData}' WHERE name = '${player.name}'`, function (err, result) {
+                if (err) throw err;
+            });
+        } else {
+            Verbingung.connection.query(`INSERT INTO playerclohtes (name, charaktereditor) VALUES ('${player.name}', '${tempData}')`, function (err, result) {
+                if (err) throw err;
+            });
+        }
+    });
+}
+
