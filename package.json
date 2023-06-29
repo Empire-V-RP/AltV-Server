@@ -1,9 +1,9 @@
 {
   "devDependencies": {
-    "@altv/types-client": "^2.7.2",
+    "@altv/types-client": "^2.7.3",
     "@altv/types-natives": "^1.5.4",
-    "@altv/types-server": "^2.7.5",
-    "@altv/types-shared": "^1.4.9",
+    "@altv/types-server": "^2.7.7",
+    "@altv/types-shared": "^1.5.0",
     "@altv/types-webview": "^1.0.5"
   },
   "dependencies": {

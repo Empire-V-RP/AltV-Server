@@ -84,11 +84,12 @@ alt.everyTick(() => {
     data.fuel = getFuelLevel();
     data.speed = Math.round(player.vehicle.speed * 3.6);
     data.kilometers += data.speed / 100000;
-    data.kilometers = Number(data.kilometers.toFixed(3)); // Begrenzt auf 3 Nachkommastellen
+    data.kilometers = Number(data.kilometers.toFixed(3)); // Limit to 3 decimal places
     
     // Motor ausschalten, wenn der Kraftstoff auf 0% fällt
     if (data.fuel <= 0) {
       player.vehicle.engine = false;
+    
     }
   } else {
     data.car = false;

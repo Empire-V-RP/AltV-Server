@@ -101,15 +101,15 @@ export function StandartSheriffKleidung(player) {
            const isDienst = await getDienstStatus(player);
         if (isDienst) {
 
-            player.setClothes(3, 0, 0, 0);
-            player.setClothes(4, 35, 0, 0);
-            player.setClothes(6, 25, 0, 0);
-            player.setClothes(8, 58, 0, 0);
-            player.setClothes(11, 55, 0, 0);
-            player.setClothes(1, 121, 0, 0);
-            player.setClothes(9, 0, 0, 0);
-            player.setClothes(7, 0, 0, 0);
-            player.setClothes(10, 0, 0, 0);
+            player.setClothes(3, 0, 0, 0); // Torso
+            player.setClothes(4, 35, 0, 0); // Hose
+            player.setClothes(6, 25, 0, 0); // Schuhe
+            player.setClothes(8, 58, 0, 0); // Shirt
+            player.setClothes(11, 55, 0, 0); // Jacke
+            player.setClothes(1, 121, 0, 0); // Maske
+            player.setClothes(9, 0, 0, 0); // Kette
+            player.setClothes(7, 0, 0, 0); // Accessoires
+            player.setClothes(10, 0, 0, 0); // Hut
             } else {
                   return chat.send(player, "Du bist nicht im Dienst!");
             }

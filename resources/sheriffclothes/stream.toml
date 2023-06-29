@@ -1,7 +1,0 @@
-files = [
-    'stream/mp_m_freemode_01_male.rpf/*'
-]
-
-[meta]
-'stream/mp_m_freemode_01_mp_m_sheriffvest.meta' = 'SHOP_PED_APPAREL_META_FILE'
-'stream/pedalternatevariations.meta' = 'ALTERNATE_VARIATIONS_FILE'

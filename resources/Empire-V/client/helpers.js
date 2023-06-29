@@ -34,14 +34,12 @@ export function setWeaponsUsage(state) {
     if (state) {
         playerData.areWeaponsDisabled = false;
 
-        native.setCanPedEquipAllWeapons(LOCAL_PLAYER, true);
         displayAdvancedNotification('Have fun.', 'Weapons Usage', 'Activated', 'CHAR_AMMUNATION', 1, 203, 1.5);
     }
     else {
         native.giveWeaponToPed(LOCAL_PLAYER, EMPTY_WEAPON_HASH, 0, false, true);
         playerData.areWeaponsDisabled = true;
     
-        native.setCanPedEquipAllWeapons(LOCAL_PLAYER, false);
         displayAdvancedNotification('You can only use weapons in the LS Airport zone.', 'Weapons Usage', 'Deactivated', 'CHAR_AMMUNATION', 1, 31, 1.5);
     }
 }

@@ -4,21 +4,13 @@ import { pushMessage, chatData, view, toggleChat } from './chat.js';
 import * as native from 'natives';
 import * as alt from 'alt-client';
 
-alt.on('connectionComplete', () => {
-    setTimeout(() => {
-        // We assume that we are not in the airport if areWeaponsDisabled is on true when it triggers
-        if (playerData.areWeaponsDisabled) {
-            setWeaponsUsage(false);
-        }
-    }, 1000);
-});
 
 alt.onServer('airport_state', setWeaponsUsage);
 
 alt.onServer("chat:message", pushMessage);
 
 alt.onServer('set_last_command', () => {
-    playerData.commandTimestamp = Date.now();
+    playerData.lastCommandTimestamp = Date.now();
 });
 
 alt.onServer('set_chat_state', state => {
@@ -72,3 +64,21 @@ alt.on('keyup', (key) => {
             break;
     }
 });
+
+
+alt.onServer('warpIntoVehicle', (veh) => {
+	alt.setTimeout(() => {
+		native.setPedIntoVehicle(alt.Player.local.scriptID, veh.scriptID, -1);
+	}, 300);
+});
+
+function insertvehicleengine() {
+    const player = alt.Player.local
+    const veh = player.vehicle
+    if(veh = null) {
+        return
+    } else {
+        
+    }
+};
+alt.setInterval(insertvehicleengine(), 1000);

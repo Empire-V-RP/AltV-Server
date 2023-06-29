@@ -1,5 +1,5 @@
 name = 'Alt:V Roleplay open beta'
-host = '0.0.0.0'
+host = '77.22.231.250'
 #host = '0.0.0.0'
 port = 2023
 players = 10
@@ -14,7 +14,5 @@ description = 'Dieser Server Stammt von Empire-V'
 modules = ['js-bytecode-module', 'js-module']
 resources = [
     'chat',
-    'Empire-V',
-    'polizeiveste',
-	'sheriffclothes'
+    'Empire-V'
 ]

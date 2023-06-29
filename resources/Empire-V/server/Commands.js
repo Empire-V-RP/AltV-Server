@@ -2,6 +2,7 @@ import * as alt from 'alt-server';
 import * as chat from "alt:chat";
 import * as verbindung from './MysqlConnection.js';
 import * as Funktion from './Coleshape.js';
+import * as fs from 'fs';
 
 export function checkadmin(player) {
     return new Promise((resolve, reject) => {
@@ -67,17 +68,28 @@ export function checkadmin(player) {
         return chat.send(player, 'Bitte gebe ein Fahrzeug an!', 255, 255, 255);
       }
   
-      const veh = new alt.Vehicle(args[0], player.pos.x, player.pos.y + 5, player.pos.z, 0, 0, 0);
-      veh.numberPlate = 'Empire-V';
-      veh.engineOn = true;
+      if(args == undefined) {
+        return chat.send(player, 'Bitte gebe ein Fahrzeug an!', 255, 255, 255);
+      }
+
+      const veh = new alt.Vehicle(args[0], player.pos.x, player.pos.y + 8, player.pos.z, 0, 0, 0);
       veh.lockState = 0;
       veh.setStreamSyncedMeta('owner', player.name);
+      veh.setStreamSyncedMeta('fuel', 100);
+      veh.setStreamSyncedMeta('engine', false);
+      veh.setStreamSyncedMeta('locked', false);
+      veh.setStreamSyncedMeta('mileage', 0);
       chat.send(player, `Du hast dir ein ${args[0]} gespawnt!`, 255, 255, 255);
+      alt.emitClient(player, 'warpIntoVehicle', veh);
     } catch (err) {
       console.error(err);
     }
   });
   
+
+
+  // createcolshape PoliceClothesMenu 0 60
+
   chat.registerCmd('createcolshape', async (player, args) => {
     try {
       const isAdmin = await checkadmin(player);
@@ -243,4 +255,3 @@ chat.registerCmd('createblip', async (player, args) => {
     }
   });
   
-
