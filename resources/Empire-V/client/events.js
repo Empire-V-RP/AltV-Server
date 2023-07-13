@@ -65,20 +65,3 @@ alt.on('keyup', (key) => {
     }
 });
 
-
-alt.onServer('warpIntoVehicle', (veh) => {
-	alt.setTimeout(() => {
-		native.setPedIntoVehicle(alt.Player.local.scriptID, veh.scriptID, -1);
-	}, 300);
-});
-
-function insertvehicleengine() {
-    const player = alt.Player.local
-    const veh = player.vehicle
-    if(veh = null) {
-        return
-    } else {
-        
-    }
-};
-alt.setInterval(insertvehicleengine(), 1000);

@@ -43,20 +43,19 @@ export function checkadmin(player) {
     });
   }
 
-  chat.registerCmd('charaktereditor', async (player) => {
+  chat.registerCmd("charaktereditor", async (player) => {
     try {
       const isAdmin = await checkadmin(player);
       if (!isAdmin) {
         return chat.send(player, 'Du hast nicht die benötigten Rechte!', 255, 255, 255);
       }
-      alt.emit('character:Edit', player);
+      alt.emitClient(player, "Client:Charcreator:CreateCEF");
     } catch (err) {
       console.error(err);
+      return;
     }
   });
-  
-  
-  
+
   chat.registerCmd('auto', async (player, args) => {
     try {
       const isAdmin = await checkadmin(player);
@@ -80,7 +79,6 @@ export function checkadmin(player) {
       veh.setStreamSyncedMeta('locked', false);
       veh.setStreamSyncedMeta('mileage', 0);
       chat.send(player, `Du hast dir ein ${args[0]} gespawnt!`, 255, 255, 255);
-      alt.emitClient(player, 'warpIntoVehicle', veh);
     } catch (err) {
       console.error(err);
     }
@@ -236,20 +234,38 @@ chat.registerCmd('createblip', async (player, args) => {
     const { x, y, z } = player.pos;
     chat.send(player, `X: ${x} Y: ${y} Z: ${z}`, 255, 255, 255);
   });
-  
-  chat.registerCmd('dv', async (player) => {
+
+  chat.registerCmd('dv', async (player, range) => {
     try {
       const isAdmin = await checkadmin(player);
       if (!isAdmin) {
         return chat.send(player, 'Du hast nicht die benötigten Rechte!', 255, 255, 255);
       }
   
-      if (!player.vehicle) {
-        return chat.send(player, 'Du bist in keinem Fahrzeug!', 255, 255, 255);
+      const deleteRadius = parseInt(range);
+      if (isNaN(deleteRadius) || deleteRadius <= 0) {
+        return chat.send(player, 'Ungültiger Radius. Verwende: /dv <Radius>', 255, 255, 255);
       }
   
-      player.vehicle.destroy();
-      chat.send(player, 'Du hast dein Fahrzeug gelöscht!', 255, 255, 255);
+      if (!player.vehicle) {
+        // Wenn der Spieler nicht in einem Fahrzeug ist
+        const vehicles = alt.Vehicle.all;
+        let deletedCount = 0;
+  
+        for (const veh of vehicles) {
+          const distance = Math.sqrt(Math.pow(veh.pos.x - player.pos.x, 2) + Math.pow(veh.pos.y - player.pos.y, 2) + Math.pow(veh.pos.z - player.pos.z, 2));
+          if (distance <= deleteRadius) {
+            veh.destroy();
+            deletedCount++;
+          }
+        }
+  
+        chat.send(player, `Du hast ${deletedCount} Fahrzeug(e) im Radius von ${deleteRadius} gelöscht!`, 255, 255, 255);
+      } else {
+        // Wenn der Spieler in einem Fahrzeug ist
+        player.vehicle.destroy();
+        chat.send(player, 'Du hast dein Fahrzeug gelöscht!', 255, 255, 255);
+      }
     } catch (err) {
       console.error(err);
     }

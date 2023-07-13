@@ -1,23 +1,21 @@
-[15:29:47] alt:V Server 14.25 (release)
-[15:29:47] Starting Alt:V Roleplay open beta on 77.22.231.250:2023
-[15:29:47] Loading resource chat
-[15:29:47][Warning] Using .cfg files is discouraged, consider using the '--convert-config-format' commandline argument
-[15:29:47] Loaded resource chat
-[15:29:47] Loading resource Empire-V
-[15:29:47] Loaded resource Empire-V
-[15:29:47] Required server permissions:
-[15:29:47] Optional server permissions:
-[15:29:47] Starting HTTP server on 77.22.231.250:2023
-[15:29:47] Main thread started (ThreadId: 18492)
-[15:29:47] Colshape thread started (ThreadId: 1068)
-[15:29:47] Sync thread started (ThreadId: 23484)
-[15:29:47] EntityStreamer thread started (ThreadId: 25612)
-[15:29:47] Network thread started (ThreadId: 28892)
-[15:29:47] Console thread started (ThreadId: 19228)
-[15:29:47][Warning] Server started in debug mode
-[15:30:07] [chat:cmd] FreddyOnline24: /auto polmav
-[15:33:32] Stopping resource chat
-[15:33:32] Stopping resource Empire-V
-[15:33:32] Stopped resource Empire-V
-[15:33:32] Stopped resource chat
-[15:33:33] Server shutdown
+[16:10:23] alt:V Server 14.25 (release)
+[16:10:23] Starting Alt:V Roleplay open beta on 77.22.234.127:2023
+[16:10:23] Loading resource chat
+[16:10:23][Warning] Using .cfg files is discouraged, consider using the '--convert-config-format' commandline argument
+[16:10:23] Loaded resource chat
+[16:10:23] Loading resource Empire-V
+[16:10:23] Loaded resource Empire-V
+[16:10:23] Required server permissions:
+[16:10:23] Optional server permissions:
+[16:10:23] Starting HTTP server on 77.22.234.127:2023
+[16:10:23] Main thread started (ThreadId: 4080)
+[16:10:23] Colshape thread started (ThreadId: 15000)
+[16:10:23] EntityStreamer thread started (ThreadId: 19288)
+[16:10:23] Sync thread started (ThreadId: 2892)
+[16:10:23] Network thread started (ThreadId: 13068)
+[16:10:23] Console thread started (ThreadId: 8124)
+[16:10:23][Warning] Server started in debug mode
+[16:10:47] [chat:cmd] FreddyOnline24: /auto t20
+[16:10:48] [chat:cmd] FreddyOnline24: /dv
+[16:10:51] [chat:cmd] FreddyOnline24: /dv 100
+[16:11:01] [chat:cmd] FreddyOnline24: /dv 100

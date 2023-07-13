@@ -53,11 +53,27 @@ connection.connect((error) => {
         createPlayerLastLocationTable();
         createPlayerClohtesTable();
         creteplayerstatstable();
-        CreateLoginTable();
-
         //CHARAKTER SYSTEM
+        createInventarTable();
     }
 });
+
+function createInventarTable() {
+    connection.query(`CREATE TABLE IF NOT EXISTS spieler_inventar (
+        spielerid INTEGER PRIMARY KEY,
+        itemName VARCHAR(255),
+        itemDescription VARCHAR(255),
+        gewicht VARCHAR(255),
+        menge VARCHAR(255)
+    )`, (error, result) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('[Empire-V] Inventory Table erstellt!');
+        }
+    });
+}
+
 
 
 
@@ -308,41 +324,6 @@ export function createplayerclohtesTable() {
         }
     });
 }
-
-
-// REGISTER / ANMELDE TABLE
-function createRegisterTable() {
-    connection.query(`CREATE TABLE IF NOT EXISTS register (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255),
-        username VARCHAR(255),
-        password VARCHAR(255)
-    )`, (error, result) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('[Empire-V] Register Table erstellt!');
-        }
-
-    });
-}
-
-function CreateLoginTable() {
-    connection.query(`CREATE TABLE IF NOT EXISTS login (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255),
-        username VARCHAR(255),
-        password VARCHAR(255)
-        )`, (error, result) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('[Empire-V] Login Table erstellt!');
-        }
-    });
-}
-
-
 
 
 function createPlayerWeaponsTable() {
